@@ -1,12 +1,12 @@
 import { useState } from "react";
 import React from "react";
 
-function ListingCard({list}) {
+function ListingCard({list, onDelete}) {
 
   const [liked, setLiked] = useState(false)
 
   return (
-    <li className="card">
+    <li className="card" id={list.id} >
       <div className="image">
         <span className="price">$0</span>
         <img src={list.image} alt={list.description} />
@@ -19,7 +19,7 @@ function ListingCard({list}) {
         )}
         <strong>{list.description}</strong>
         <span> · {list.location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button className="emoji-button delete" onClick={onDelete} >🗑</button>
       </div>
     </li>
   );

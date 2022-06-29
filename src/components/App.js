@@ -14,10 +14,17 @@ function App() {
   
   // console.log(listingsState)
 
+  function handleDelete(e){
+
+    let filteredListings = listingsState.filter((item)=> item.id !== parseInt(e.target.parentNode.parentNode.id))
+
+    setListingsState(filteredListings)
+  }
+
   return (
     <div className="app">
       <Header />
-      <ListingsContainer listingsState={listingsState} />
+      <ListingsContainer listingsState={listingsState} onDelete={handleDelete} />
     </div>
   );
 }
